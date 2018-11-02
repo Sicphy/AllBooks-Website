@@ -120,7 +120,7 @@ bestbooks - это сайт посвященный только книгам. П
 
 ## 2.2 Интерфейс пользователя
 Главная страница сайта.  
-![Главное окно приложения](../Images/Mockups/Main_page.png)  
+![Главное окно приложения](https://github.com/Sicphy/AllBooks-Websyte/blob/master/Images/Mockups/Main_page.png)  
 
 Страница авторизации.  
 При нажатии на кнопку "Войти" - переход к окну авторизации.
@@ -132,10 +132,10 @@ bestbooks - это сайт посвященный только книгам. П
 При нажатии на кнопку "Зарегистрироваться" - переход к окну регистрации нового пользователя.
 При нажатии на кнопку "Ок" - переход к главной странице, если введены все поля.  
 При нажатии на кнопку "Назад" - переход к главной странице сайта.  
-![Страница регистрации нового пользователя](../Images/Mockups/Registration_page.png)
+![Страница регистрации нового пользователя](https://github.com/Sicphy/AllBooks-Websyte/blob/master/Images/Mockups/Registration_page.png)
   
 Окно настройки профиля пользователя.  
-![Окно настройки профиля пользователя](../Images/Mockups/Profile_page.png)
+![Окно настройки профиля пользователя](https://github.com/Sicphy/AllBooks-Websyte/blob/master/Images/Mockups/Profile_page.png)
 
 <a name="user_specifications"/>
 
