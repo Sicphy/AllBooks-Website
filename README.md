@@ -1,1 +1,1 @@
-Simple websyte for selling books.
+Simple website for selling books.
