@@ -12,25 +12,25 @@
 
 ### 1. Авторизация на сайте<a name="1"></a>
 
-![Авторизация на сайте](../Sequence/image_1.jpg)
+![Авторизация на сайте](https://github.com/Sicphy/AllBooks-Website/blob/master/Documentation/Diagrams/Sequence/sequenceDiagram1.jpg)
 
 ### 2. Добавление объявления<a name="2"></a>
 
-![Добавление объявления](../Sequence/image_2.jpg)
+![Добавление объявления](https://github.com/Sicphy/AllBooks-Website/blob/master/Documentation/Diagrams/Sequence/sequenceDiagram2.jpg)
   
 ### 3. Удаление объявления<a name="3"></a>
 
-![Удаление объявления](../Sequence/image_3.jpg)
+![Удаление объявления](https://github.com/Sicphy/AllBooks-Website/blob/master/Documentation/Diagrams/Sequence/sequenceDiagram4.jpg)
 
 ### 4. Изменение объявления<a name="4"></a>
 
-![Изменение объявления](../Sequence/image_4.jpg)
+![Изменение объявления](https://github.com/Sicphy/AllBooks-Website/blob/master/Documentation/Diagrams/Sequence/sequenceDiagram3.jpg)
 
 ### 5. Регестрация на сайте<a name="5"></a>
 
-![Регестрация на сайте](../Sequence/image_5.jpg)
+![Регестрация на сайте](https://github.com/Sicphy/AllBooks-Website/blob/master/Documentation/Diagrams/Sequence/sequenceDiagram6.jpg)
 
 ### 6. Поиск на сайте<a name="6"></a>
 
-![Поиск на сайте](../Sequence/image_5.jpg)
+![Поиск на сайте](https://github.com/Sicphy/AllBooks-Website/blob/master/Documentation/Diagrams/Sequence/sequenceDiagram5.jpg)
 
