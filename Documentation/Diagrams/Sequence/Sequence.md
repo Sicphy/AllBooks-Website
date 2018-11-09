@@ -6,7 +6,7 @@
 2. [Добавление объявления](#2)
 3. [Удаление объявления](#3)
 4. [Изменение объявления](#4)
-5. [Регестрация на сайте](#5)
+5. [Регистрация на сайте](#5)
 6. [Поиск на сайте](#6)
 
 
@@ -26,9 +26,9 @@
 
 ![Изменение объявления](https://github.com/Sicphy/AllBooks-Website/blob/master/Documentation/Diagrams/Sequence/sequenceDiagram3.jpg)
 
-### 5. Регестрация на сайте<a name="5"></a>
+### 5. Регистрация на сайте<a name="5"></a>
 
-![Регестрация на сайте](https://github.com/Sicphy/AllBooks-Website/blob/master/Documentation/Diagrams/Sequence/sequenceDiagram6.jpg)
+![Регистрация на сайте](https://github.com/Sicphy/AllBooks-Website/blob/master/Documentation/Diagrams/Sequence/sequenceDiagram6.jpg)
 
 ### 6. Поиск на сайте<a name="6"></a>
 
