@@ -1,0 +1,50 @@
+{% extends "main.html" %}
+{% load thumbnail %}
+{% load staticfiles %}
+{% block title %}{{ genre.name }}{% endblock %}
+{% block main %}
+  {% include "generic/messages.html" %}
+  <div class="search-form">
+    <form action="" method="get">
+      <input type="text" id="search" name="search" value="{{ search }}">
+      <input type="submit" value="Найти">
+    </form>
+  </div>
+  <h2>{{ genre.name }}</h2>
+  {% if perms.goods.add_good %}
+    <p><a href="{% url "goods_add" pk=genre.pk %}?page={{ page_obj.number }}&sort={{ sort }}&order={{ order }}">Добавить товар</a></p>
+  {% endif %}
+  <table class="list-table">
+    <tr>
+      <th>Миниатюра</th>
+      <th><a href="?sort=0&order={% if sort == "0" and order == "A" %}D{% else %}A{% endif %}">
+        {% if sort == "0" %}{% if order == "D" %}&#9660;{% else %}&#9650;{% endif %}{% endif %}&nbsp;Название
+      </a></th>
+      <th>Автор</th>
+      <th><a href="?sort=1&order={% if sort == "1" and order == "A" %}D{% else %}A{% endif %}">
+        {% if sort == "1" %}{% if order == "D" %}&#9660;{% else %}&#9650;{% endif %}{% endif %}&nbsp;Цена, руб.
+      </a></th>
+      {% if perms.goods.change_good %}
+        <th>&nbsp;</th>
+      {% endif %}
+      {% if perms.goods.delete_good %}
+        <th>&nbsp;</th>
+      {% endif %}
+    </tr>
+    {% for object in object_list %}
+      <tr>
+        <td class="centered"><a href="{% url "goods_detail" pk=object.pk %}?page={{ page_obj.number }}&sort={{ sort }}&order={{ order }}"><img src="{% thumbnail object.image "base" %}"><a></td>
+        <td><a href="{% url "goods_detail" pk=object.pk %}?page={{ page_obj.number }}&sort={{ sort }}&order={{ order }}">{{ object.name }}</a></td>
+        <td>{{ object.author }}</td>
+        <td>{{ object.price }}</td> 
+        {% if perms.page.change_good %}
+          <td class="centered"><a href="{% url "goods_edit" pk=object.pk %}?page={{ page_obj.number }}&sort={{ sort }}&order={{ order }}">Изменить</a></td>
+        {% endif %}
+        {% if perms.page.delete_good %}
+          <td class="centered"><a href="{% url "goods_delete" pk=object.pk %}?page={{ page_obj.number }}&sort={{ sort }}&order={{ order }}">Удалить</a></td>
+        {% endif %}
+      </tr>
+    {% endfor %}
+  </table>
+  {% include "generic/pagination.html" %}
+{% endblock %}

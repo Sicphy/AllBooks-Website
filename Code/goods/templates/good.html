@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+{% load comments %}
+{% block title %}{{ object.name }} :: {{ object.genre.name }}{% endblock %}
+{% block main %}
+  <h2>{{ object.name }}</h2>
+  <p>Жанр: {{object.genre.name }}</p>
+  <p>Автор: {{object.author }}</p>
+  <div class="good-images">
+    <div><img src="{{ object.image.url }}"></div>
+    {% for goodimage in object.goodimage_set.all %}
+      <div><img src="{{ goodimage.image.url }}"></div>
+    {% endfor %}
+  </div>
+  <div>{{ object.description|safe }}</div>
+  <p>Цена, руб.: {{ object.price }}</p>
+  <p>Контакты: {{object.contacts }}</p>
+  <p><a href="{% url "goods_index" pk=object.genre.pk %}?page={{ pn }}&sort={{ sort }}&order={{ order }}">Назад</a></p>
+  <p>&nbsp;</p>
+  {% get_comment_count for good as good_comments_count %}
+  <p>Всего комментариев: {{ good_comments_count }}.</p>
+  {% render_comment_list for object %}
+  <p>&nbsp;</p>
+  {% if user.is_authenticated %}
+    {% get_comment_form for object as form %}
+    <div class="form">
+      <form action="{% comment_form_target %}" method="post">
+        {% include "generic/comment_form.html" %}
+        <input type="hidden" name="next" value="{% url "goods_detail" pk=object.pk %}?page={{ pn }}&sort={{ sort }}&order={{ order }}">
+        <div class="submit-button"><input type="submit" name="submit" value="Отправить"></div>
+      </form>
+    </div>
+  {% else %}
+  <p>Чтобы добавить комментарий, выполните <a href="{% url "login" %}">вход на сайт</a>.</p>
+  {% endif %}
+{% endblock %}
