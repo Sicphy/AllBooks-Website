@@ -1,0 +1,26 @@
+{% extends "registration.html" %}
+{% block title %}Регистрация{% endblock %}
+{% block ll %}
+<h2>Регистрация</h2>
+<p>Регистрация на данном сайте позволит вам создавать объявления, а также оставлять комментарии.</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <dl class="register">
+        {% for field in form %}
+          <dt>{{ field.label_tag }}</dt>
+          <dd class="clearfix">
+              {{ field }}
+              {% if field.help_text %}
+              <div class="clearfix">{{ field.help_text }}</div>
+              {% endif %}
+              {% if field.errors %}
+              <div class="myerrors clearfix">{{ field.errors }}</div>
+              {% endif %}
+              <p>&nbsp;</p>
+          </dd>
+        {% endfor %}
+    </dl>
+    <input class="inline" type="submit" value="Зарегистрироваться" class="clearfix">
+    <input class="inline" type="button" value="На главную" onClick='location.href="{% url "main" %}"'>    
+</form>
+{% endblock %}
