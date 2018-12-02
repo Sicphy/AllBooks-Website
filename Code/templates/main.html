@@ -9,6 +9,11 @@
   </div>
   <div id="leftmenu">
     <ul>
+      {% if user.is_authenticated %}
+        {% url "change_profile" as page_url %}
+        <li><a href="{{ page_url }}"{% if page_url == current_url %} class="current"{% endif %}>Профиль</a></li>
+        <li>&nbsp;</li>
+      {% endif %}
       {% url "main" as page_url %}
       <li><a href="{{ page_url }}"{% if page_url == current_url %} class="current"{% endif %}>Главная</a></li>
       <li>&nbsp;</li>

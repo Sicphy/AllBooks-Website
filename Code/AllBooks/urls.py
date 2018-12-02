@@ -21,17 +21,20 @@ from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 from django.contrib.django_registration.backends.activation.views import RegistrationView
 from django.contrib.django_registration.forms import RegistrationFormUniqueEmail
+from django.contrib.django_comments.views.moderation import delete as django_comment_delete
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^goods/', include("goods.urls")),
+    url(r'^accounts/', include("accounts.urls")),
     url(r'^comments/', include('django_comments.urls')),
     url(r'^$', include('main.urls')),
     url(r'^login/', auth_views.LoginView.as_view(template_name="login.html"), name = "login"),
     url(r'^logout/', auth_views.LogoutView.as_view(template_name="logout.html"), name = "logout"),
     url(r'^register/$', RegistrationView.as_view(form_class=RegistrationFormUniqueEmail), name='registration'),
     url('', include('django_registration.backends.one_step.urls')),
-    #url(r'^genres/', include('genres.urls'),
+    #url(r'^delete_comment/(\d+)/', comment_delete),
 ]
 
 

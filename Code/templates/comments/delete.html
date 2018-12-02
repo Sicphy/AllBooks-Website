@@ -1,0 +1,20 @@
+{% extends "comments.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Remove a comment" %}{% endblock %}
+
+{% block ll %}
+  <h1>{% trans "Really remove this comment?" %}</h1>
+  <div class="user">{{ comment.user_name }}</div>
+  <div class="content">{{ comment.comment }}</div>
+  <div class="date">{{ comment.submit_date|date:"j.m.Y H:i:s" }}</div>
+  <form action="." method="post">{% csrf_token %}
+    {% if next %}
+      <div><input type="hidden" name="next" value="{{ next }}" id="next"/></div>{% endif %}
+    <p class="submit">
+      <input type="hidden" name="next" value="{{ request.META.HTTP_REFERER }}"/>
+      <input class="inline" type="submit" name="submit" value="{% trans "Remove" %}"/> 
+      <input class="inline" type="button" value="Назад" onClick='location.href="{{ request.META.HTTP_REFERER }}"'/>
+    </p>
+  </form>
+{% endblock %}

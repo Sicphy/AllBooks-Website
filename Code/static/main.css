@@ -162,3 +162,7 @@
 .feeds {
   text-align: right;
 }
+.inline {
+  display: inline-block;
+  margin-right: 30px;
+}

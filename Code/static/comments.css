@@ -1,0 +1,22 @@
+@charset "utf-8";
+#ll {
+  width: 960px;
+  margin: 60px 60px 0px auto;
+  padding: 40px;
+}
+#ll h2 {
+  margin-top: 0px;
+}
+.inline {
+    display: inline-block;
+    margin-right: 30px;
+}
+.user {
+  background-color: #eeeeee;
+  font-weight: bold;
+}
+.date {
+  background-color: #eeeeee;
+  font-style: italic;
+  text-align: right;
+}

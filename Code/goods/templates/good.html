@@ -18,8 +18,22 @@
   <p>&nbsp;</p>
   {% get_comment_count for good as good_comments_count %}
   <p>Всего комментариев: {{ good_comments_count }}.</p>
-  {% render_comment_list for object %}
-  <p>&nbsp;</p>
+  {% get_comment_list for object as good_comments %}
+  {% for comment in good_comments %}
+    {% if comment.is_removed %}
+      <p class="comment-removed">Комментарий удален.</p>
+    {% else %}
+      <div class="comment">
+        <div class="user">{{ comment.user_name }}</div>
+        <div class="content">{{ comment.comment }}</div>
+        <div class="date">{{ comment.submit_date|date:"j.m.Y H:i:s" }}</div>
+        {% if perms.django_comments.delete_comment %}
+        <div class="delete_comment"><a href="{% url "comments-delete" comment.id %}">Удалить</a></div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <p>&nbsp;</p>
+  {% endfor %}  
   {% if user.is_authenticated %}
     {% get_comment_form for object as form %}
     <div class="form">

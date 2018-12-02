@@ -148,6 +148,7 @@ class GoodUpdate(PageNumberView, TemplateView, SortMixin, PageNumberMixin):
 class GoodDelete(PageNumberView, DeleteView, SortMixin, PageNumberMixin):
   model = Good
   template_name = "good_delete.html"
+  
   def post(self, request, *args, **kwargs):
     self.success_url = reverse("goods_index", kwargs = {"pk": Good.objects.get(pk = kwargs["pk"]).genre.pk}) + "?page=" + self.request.GET["page"] + "&sort=" + self.request.GET["sort"] + "&order=" + self.request.GET["order"]
     messages.add_message(request, messages.SUCCESS, "Товар успешно удален")

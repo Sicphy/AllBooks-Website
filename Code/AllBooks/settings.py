@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'genres',
     'goods',
     'easy_thumbnails',
+    'accounts',
 ]
 
 MIDDLEWARE = [

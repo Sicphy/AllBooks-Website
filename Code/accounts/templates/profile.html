@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block title %}Профиль{% endblock %}
+{% block main %}
+    <h2>Добро пожаловать в ваш профиль {{ user.username }} !</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        <p><a href="{% url "change_password" %}">Изменить пароль</a></p>
+        <button class="inline" type="submit">Сохранить изменения</button>
+        <input class="inline" type="button" value="Назад" onClick='location.href="{{ request.META.HTTP_REFERER }}"'/>
+    </form>
+{% endblock %}
