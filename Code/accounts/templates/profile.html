@@ -2,10 +2,12 @@
 {% block title %}Профиль{% endblock %}
 {% block main %}
     <h2>Добро пожаловать в ваш профиль {{ user.username }} !</h2>
+    {% include "generic/messages.html" %}
     <form method="post">
         {% csrf_token %}
         {{ user_form.as_p }}
         <p><a href="{% url "change_password" %}">Изменить пароль</a></p>
+        <p><a href="{% url "delete_account" %}">Удалить аккаунт</a></p>
         <button class="inline" type="submit">Сохранить изменения</button>
         <input class="inline" type="button" value="Назад" onClick='location.href="{{ request.META.HTTP_REFERER }}"'/>
     </form>

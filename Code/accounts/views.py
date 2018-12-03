@@ -24,14 +24,14 @@ class ProfilePageView(TemplateView, CategoryListMixin):
         return context
 
     def post(self, request, *args, **kwargs):
-        user_form = UserForm(request.POST, instance=request.user)
-        if user_form.is_valid():
-            user_form.save()
+        self.user_form = UserForm(request.POST, instance=request.user)
+        if self.user_form.is_valid():
+            self.user_form.save()
             messages.add_message(request, messages.SUCCESS, "Ваш профиль был успешно обновлён !")
             return redirect('main')
         else:
             messages.add_message(request, messages.ERROR, "Please correct the error below.")
-        return render(request, 'profile.html', {'user_form': user_form})
+        return super(ProfilePageView, self).get(request, *args, **kwargs)
 
 class PasswordPageView(TemplateView, CategoryListMixin):
     template_name = "change_password.html"
@@ -46,12 +46,28 @@ class PasswordPageView(TemplateView, CategoryListMixin):
         return context
 
     def post(self, request, *args, **kwargs):
-        form = PasswordChangeForm(request.user, request.POST)
-        if form.is_valid():
-            user = form.save()
+        self.form = PasswordChangeForm(request.user, request.POST)
+        if self.form.is_valid():
+            user = self.form.save()
             update_session_auth_hash(request, user)  # Important!
             messages.add_message(request, messages.SUCCESS, "Ваш пароль был успешно обновлён !")
             return redirect('change_password')
         else:
             messages.add_message(request, messages.ERROR, "Please correct the error below.")
-        return render(request, 'change_password.html', {'form': form})
+        return super(PasswordPageView, self).get(request, *args, **kwargs)
+
+
+class DeleteAccountPageView(TemplateView, CategoryListMixin):
+    template_name = "delete_account.html"
+    
+    def get(self, request, *args, **kwargs):
+        return super(DeleteAccountPageView, self).get(request, *args, **kwargs)
+        
+    def get_context_data(self, **kwargs):
+        context = super(DeleteAccountPageView, self).get_context_data(**kwargs)
+        return context
+
+    def post(self, request, *args, **kwargs):
+        request.user.is_active = False
+        request.user.save()
+        return redirect('main')

@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+{% block title %}Профиль{% endblock %}
+{% block main %}
+    <div  class="delete_title"><h2>{{ user.username }}, вы действительно хотите удалить свой аккаунт ?</h2></div>
+    <form method="post">
+        {% csrf_token %}
+        <button class="delete_acc" type="submit">Да</button>
+        <input class="delete_acc" type="button" value="Нет" onClick='location.href="{% url "change_profile" %}"'/>
+    </form>
+{% endblock %}
