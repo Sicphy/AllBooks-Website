@@ -109,7 +109,7 @@
 
 # 7 Представление результатов
 
-Результаты тестирования представлены в документе ["Представление результатов"](https://github.com/Sicphy/AllBooks-Website/blob/master/Documentation/Tests/TestResults.md).
+Результаты тестирования представлены в документе ["Результаты теста"](https://github.com/Sicphy/AllBooks-Website/blob/master/Documentation/Tests/TestResults.md).
 
 <a name="conclusion"/>
 
