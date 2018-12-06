@@ -27,6 +27,7 @@ from django.contrib.django_comments.views.moderation import delete as django_com
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^goods/', include("goods.urls")),
+    url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^accounts/', include("accounts.urls")),
     url(r'^comments/', include('django_comments.urls')),
     url(r'^$', include('main.urls')),

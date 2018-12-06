@@ -22,6 +22,7 @@
         <li{% if forloop.first %} class="indented"{% endif %}><a href="{{ page_url }}"{% if page_url == current_url %} class="current"{% endif %}>{{ object.name }}</a></li>
       {% endfor %}
       <li>&nbsp;</li>
+      <li class="indented"><a href="{% url 'django.contrib.flatpages.views.flatpage' url='help' %}">Справка</a></li>
       {% if user.is_authenticated %}
         <li class="indented"><a href="{% url "logout" %}">Выйти</a></li>
       {% else %}
