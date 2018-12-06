@@ -51,7 +51,7 @@ class PasswordPageView(TemplateView, CategoryListMixin):
             user = self.form.save()
             update_session_auth_hash(request, user)  # Important!
             messages.add_message(request, messages.SUCCESS, "Ваш пароль был успешно обновлён !")
-            return redirect('change_password')
+            return redirect('main')
         else:
             messages.add_message(request, messages.ERROR, "Please correct the error below.")
         return super(PasswordPageView, self).get(request, *args, **kwargs)
