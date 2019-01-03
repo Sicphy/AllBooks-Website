@@ -26,7 +26,7 @@
 3.1.1 [Основные функции](#main_functions)  
 3.1.1.1 [Авторизация пользователя](#user_login_to_the_application)  
 3.1.1.2 [Настройка профиля активного пользователя](#setting_up_the_profile_of_the_active_user)  
-3.1.1.3 [Добавление комментариев](#add_comments)
+3.1.1.3 [Добавление комментариев](#add_comments)  
 3.1.1.4 [Добавление объявления](#add_advertisement)  
 3.1.1.5 [Выход пользователя из учётной записи](#active_user_change)   
 3.1.2 [Ограничения и исключения](#restrictions_and_exclusions)  
